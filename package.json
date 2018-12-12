@@ -1,0 +1,26 @@
+{
+  "name": "outside-cli",
+  "version": "1.0.0",
+  "description": "A CLI app that gives you the weather forecast",
+  "main": "index.js",
+  "homepage": "https://github.com/rudotriton/outside-cli.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rudotriton/outside-cli.git"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "outside": "bin/outside"
+  },
+  "preferGlobal": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "minimist": "^1.2.0",
+    "ora": "^3.0.0"
+  }
+}
