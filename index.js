@@ -1,5 +1,6 @@
 const minimist = require('minimist');
 const error = require('./utils/error');
+const chalk = require('chalk');
 
 module.exports = () => {
   const args = minimist(process.argv.slice(2));
@@ -32,7 +33,7 @@ module.exports = () => {
       break
 
     default:
-      error(`"${cmd}" is not a valid command!`, true)
+      error(chalk.red(`"${cmd}" is not a valid command!`), true)
       break
   }
 }

@@ -1,5 +1,6 @@
-const ora = require('ora')
-const getWeather = require('../utils/weather')
+const ora = require('ora');
+const getWeather = require('../utils/weather');
+const chalk = require('chalk');
 
 module.exports = async (args) => {
   const spinner = ora().start()
@@ -10,12 +11,25 @@ module.exports = async (args) => {
 
     spinner.stop()
 
-    console.log(`Forecast for ${location}:`)
+    console.log(`
+    Forecast for ${chalk.yellow(location)}:
+    `);
+    
     weather.forecast.forEach(item =>
-      console.log(`\t${item.date} - Low: ${item.low}° | High: ${item.high}° | ${item.text}`))
-  } catch (err) {
-    spinner.stop()
+      console.log(
+        `\t${item.date} - ${chalk.blue('Low')}: ${
+          item.low >= 0 && item.low <= 9 ? '  ' + item.low : item.low <= -10 ? item.low : ' ' + item.low
+        }° | ${chalk.red('High')}: ${
+        item.high >= 0 && item.high <= 9 ? '  ' + item.high : item.high <= -10 ? item.high : ' ' + item.high
+        }° | ${item.text}`
+      )
+    )
+    //empty line befor ethe prompt is returned
+    console.log();
 
-    console.error(err)
+  } catch (err) {
+    spinner.stop();
+
+    console.error(chalk.red(err));
   }
 }

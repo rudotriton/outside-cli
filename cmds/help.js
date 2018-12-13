@@ -1,20 +1,45 @@
+const chalk = require('chalk');
+
 const menus = {
   main: `
-    outside [command] <options>
+    ${chalk.bold('outside')} ${chalk.blue('[command]')} ${chalk.dim('<options>')}
 
-    today .............. show weather for today
-    version ............ show package version
-    help ............... show help menu for a command`,
+    ${chalk.blue('today')} .............. show weather for today
+    ${chalk.blue('forecast')} ........... show weather for the next 10 days
+
+    ${chalk.blue('version')} ............ show package version
+    ${chalk.blue('help')} ............... show help menu for a command
+
+    ${chalk.dim('For further information run: ')}
+    ${chalk.bold('outside help [command]')}
+    `,
 
   today: `
-    outside today <options>
+    ${chalk.bold('outside')} ${chalk.bold('today')} ${chalk.blue('<options>')}
 
-    --location, -l ..... the location to use`,
+    ${chalk.blue('--location, -l')} ..... the location to use
+
+
+    ${chalk.blue('For example:')}
+    ${chalk.bold('outside today -l London')}
+    `,
     
   forecast: `
-    outside forecast <options>
+    ${chalk.bold('outside')} ${chalk.bold('forecast')} ${chalk.blue('<options>')}
 
-    --location, -l ..... the location to use`,
+    ${chalk.blue('--location, -l')} ..... the location to use
+    
+    ${chalk.blue('For example:')}
+    ${chalk.bold('outside forecast -l London')}
+    `,
+
+  version: `
+    ${chalk.bold(`Try 'outside -v' or 'outside --version' instead`)}
+  `,
+
+  help: `
+    ${chalk.bold(`There is no additional help. Try 'outside help' or 'outside -h' instead.` )}
+  `
 }
 
 // if the args._[0] is 'help' 
