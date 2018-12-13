@@ -1,6 +1,6 @@
 {
   "name": "rudo-outside-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A CLI app that gives you the weather forecast",
   "main": "index.js",
   "homepage": "https://github.com/rudotriton/outside-cli.git",
