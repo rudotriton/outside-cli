@@ -2,45 +2,54 @@ const chalk = require('chalk');
 
 const menus = {
   main: `
-    ${chalk.bold('outside')} ${chalk.blue('[command]')} ${chalk.dim('<options>')}
+    ${chalk.bold("outside")} ${chalk.blue("[command]")} ${chalk.dim(
+    "<options>"
+  )}
 
-    ${chalk.blue('today')} .............. show weather for today
-    ${chalk.blue('forecast')} ........... show weather for the next 10 days
+    ${chalk.blue("today")} .............. show weather for today
+    ${chalk.blue("forecast")} ........... show weather for the next 10 days
 
-    ${chalk.blue('version')} ............ show package version
-    ${chalk.blue('help')} ............... show help menu for a command
+    ${chalk.blue("set")} ................ set API key
+    
+    ${chalk.blue("version")} ............ show package version
+    ${chalk.blue("help")} ............... show help menu for a command
 
-    ${chalk.dim('For further information run: ')}
-    ${chalk.bold('outside help [command]')}
+    ${chalk.dim("For further information run: ")}
+    ${chalk.bold("outside help [command]")}
     `,
 
   today: `
-    ${chalk.bold('outside')} ${chalk.bold('today')} ${chalk.blue('<options>')}
+    ${chalk.bold("outside")} ${chalk.bold("today")} ${chalk.blue("<location>")}
 
-    ${chalk.blue('--location, -l')} ..... the location to use
-
-
-    ${chalk.blue('For example:')}
-    ${chalk.bold('outside today -l London')}
+    ${chalk.blue("For example:")}
+    ${chalk.bold("outside today London")}
     `,
-    
+
   forecast: `
-    ${chalk.bold('outside')} ${chalk.bold('forecast')} ${chalk.blue('<options>')}
+    ${chalk.bold("outside")} ${chalk.bold("forecast")} ${chalk.blue(
+    "<location>"
+  )}
 
-    ${chalk.blue('--location, -l')} ..... the location to use
-    
-    ${chalk.blue('For example:')}
-    ${chalk.bold('outside forecast -l London')}
+    ${chalk.blue("For example:")}
+    ${chalk.bold("outside forecast London")}
     `,
+
+  set: `
+    ${chalk.bold("outside set")} ${chalk.blue("<API_KEY>")}
+    
+    The API key is from ${chalk.blue('https://openweathermap.org')} and is for "Current Weather Data".
+  `,
 
   version: `
     ${chalk.bold(`Try 'outside -v' or 'outside --version' instead`)}
   `,
 
   help: `
-    ${chalk.bold(`There is no additional help. Try 'outside help' or 'outside -h' instead.` )}
-  `
-}
+    ${chalk.bold(
+      `There is no additional help. Try 'outside help' or 'outside -h' instead.`
+    )}
+  `,
+};
 
 // if the args._[0] is 'help' 
 // 'outside help' means that args._[0] === 'help'

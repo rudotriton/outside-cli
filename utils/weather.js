@@ -1,15 +1,19 @@
-const axios = require('axios')
+const axios = require('axios');
 
-module.exports = async (location) => {
-  const results = await axios({
-    method: 'get',
-    url: 'https://query.yahooapis.com/v1/public/yql',
-    params: {
-      format: 'json',
-      q: `select item from weather.forecast where woeid in
-        (select woeid from geo.places(1) where text="${location}") and u="c"`,
-    },
-  })
-
-  return results.data.query.results.channel.item
+module.exports = async (location, apiKey, forecast = false) => {
+  const api = forecast ? 'forecast' : 'weather';
+  let results;
+  try {
+    results = await axios.get(
+      `https://api.openweathermap.org/data/2.5/${api}`,
+      {
+      params: {
+        q: location,
+        APPID: apiKey,
+      },
+    });
+  } catch (e) {
+    console.log(e);
+  }
+  return results.data;
 }

@@ -24,6 +24,10 @@ module.exports = () => {
       require('./cmds/forecast')(args)
       break
 
+    case 'set':
+      require('./cmds/set')(args)
+      break
+
     case 'version':
       require('./cmds/version')(args)
       break
