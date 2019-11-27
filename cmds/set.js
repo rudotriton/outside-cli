@@ -12,10 +12,9 @@ module.exports = async (args) => {
 
     spinner.stop();
 
-    console.log(`${chalk.green(`Your API key has been saved to: ${chalk.bold(path.resolve(process.env.HOME, 'outside-cli.json'))}`)}`);
+    console.log(`${chalk.green(`Your API key has been saved to: ${chalk.bold(path.resolve(process.env.HOME, '.outside-cli.json'))}`)}`);
   } catch (err) {
     spinner.stop();
-
-    console.error(err);
+    console.error(err.message);
   }
 };

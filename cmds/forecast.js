@@ -48,6 +48,6 @@ module.exports = async (args) => {
   } catch (err) {
     spinner.stop();
 
-    console.error(chalk.red(err));
+    console.error(chalk.red(err.message));
   }
 }

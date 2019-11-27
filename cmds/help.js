@@ -1,4 +1,5 @@
 const chalk = require('chalk');
+const path = require('path');
 
 const menus = {
   main: `
@@ -10,6 +11,7 @@ const menus = {
     ${chalk.blue("forecast")} ........... show weather for the next 10 days
 
     ${chalk.blue("set")} ................ set API key
+    ${chalk.blue("unset")} .............. delete already set API key
     
     ${chalk.blue("version")} ............ show package version
     ${chalk.blue("help")} ............... show help menu for a command
@@ -34,10 +36,20 @@ const menus = {
     ${chalk.bold("outside forecast London")}
     `,
 
+  unset: `
+    ${chalk.bold("outside unset")}
+    
+    This command removes the API key by deleting the file at: ${chalk.blue(
+      path.resolve(process.env.HOME, ".outside-cli.json")
+    )}. It may fail if the file does not exist at this location.
+  `,
+
   set: `
     ${chalk.bold("outside set")} ${chalk.blue("<API_KEY>")}
     
-    The API key is from ${chalk.blue('https://openweathermap.org')} and is for "Current Weather Data".
+    The API key is from ${chalk.blue(
+      "https://openweathermap.org"
+    )} and is for "Current Weather Data". You would need to create an account for an API key.
   `,
 
   version: `

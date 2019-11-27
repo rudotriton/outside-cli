@@ -11,13 +11,13 @@ module.exports = async (apiKey) => {
       apiKey,
     }
     await writeFileAsync(
-      path.resolve(process.env.HOME, "outside-cli.json"),
+      path.resolve(process.env.HOME, ".outside-cli.json"),
       JSON.stringify(obj, null, 2), 'utf8'
     );
   } catch (_) {
-    console.log(
+    throw new Error(
       chalk.red(
-        'Could not write api key to config.\n\tFor further info run "outisde help set"'
+        'Could not write api key to config.\n\tFor further info run "outside help set"'
       )
     );
   }

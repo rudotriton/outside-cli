@@ -21,6 +21,6 @@ module.exports = async (args) => {
   } catch (err) {
     spinner.stop()
 
-    console.error(err)
+    console.error(err.message)
   }
 }
