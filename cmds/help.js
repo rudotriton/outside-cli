@@ -11,6 +11,7 @@ const menus = {
     ${chalk.blue("forecast")} ........... show weather for the next 10 days
 
     ${chalk.blue("set")} ................ set API key
+    ${chalk.blue("get")} ................ print already set API key
     ${chalk.blue("unset")} .............. delete already set API key
     
     ${chalk.blue("version")} ............ show package version
@@ -49,11 +50,21 @@ const menus = {
     
     The API key is from ${chalk.blue(
       "https://openweathermap.org"
-    )} and is for "Current Weather Data". You would need to create an account for an API key.
+    )} and is for "Current Weather Data". You would need to create an account for an API key. The key is saved to ${chalk.blue(
+    path.resolve(process.env.HOME, ".outside-cli.json")
+  )}.
+  `,
+
+  get: `
+    ${chalk.bold("outside get")}
+    
+    This command prints out your currently set API key, if you have the need to check what it is. The API key can be found in ${chalk.blue(
+      path.resolve(process.env.HOME, ".outside-cli.json")
+    )}.
   `,
 
   version: `
-    ${chalk.bold(`Try 'outside -v' or 'outside --version' instead`)}
+    ${chalk.bold(`Try 'outside -v' or 'outside --version' instead.`)}
   `,
 
   help: `

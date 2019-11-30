@@ -28,6 +28,10 @@ module.exports = () => {
         require('./cmds/set')(args)
         break
 
+      case 'get':
+        require('./cmds/get')()
+        break
+
       case 'unset':
         require('./cmds/unset')()
         break

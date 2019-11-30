@@ -6,6 +6,13 @@ const chalk = require("chalk");
 const writeFileAsync = promisify(fs.writeFile);
 
 module.exports = async (apiKey) => {
+  if (apiKey === undefined) {
+    throw new Error(
+      chalk.red(
+        'No api key was supplied.'
+      )
+    );
+  }
   try {
     const obj = {
       apiKey,
