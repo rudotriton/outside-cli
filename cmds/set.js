@@ -1,7 +1,8 @@
-const ora = require("ora");
-const chalk = require("chalk");
-const setApiKey = require("../utils/setApiKey");
+/* eslint-disable no-console */
+const ora = require('ora');
+const chalk = require('chalk');
 const path = require('path');
+const setApiKey = require('../utils/setApiKey');
 
 module.exports = async (args) => {
   const spinner = ora().start();

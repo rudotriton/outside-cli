@@ -1,7 +1,8 @@
-const ora = require("ora");
-const chalk = require("chalk");
-const unsetApiKey = require("../utils/unsetApiKey");
-const path = require("path");
+/* eslint-disable no-console */
+const ora = require('ora');
+const chalk = require('chalk');
+const path = require('path');
+const unsetApiKey = require('../utils/unsetApiKey');
 
 module.exports = async () => {
   const spinner = ora().start();
@@ -14,9 +15,9 @@ module.exports = async () => {
     console.log(
       `${chalk.green(
         `Your API key has been successfully removed from: ${chalk.bold(
-          path.resolve(process.env.HOME, ".outside-cli.json")
-        )}`
-      )}`
+          path.resolve(process.env.HOME, '.outside-cli.json'),
+        )}`,
+      )}`,
     );
   } catch (err) {
     spinner.stop();

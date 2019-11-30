@@ -1,7 +1,7 @@
-const ora = require("ora");
-const chalk = require("chalk");
-const getApiKey = require("../utils/getApiKey");
-const path = require("path");
+/* eslint-disable no-console */
+const ora = require('ora');
+const chalk = require('chalk');
+const getApiKey = require('../utils/getApiKey');
 
 module.exports = async () => {
   const spinner = ora().start();
@@ -13,8 +13,8 @@ module.exports = async () => {
 
     console.log(
       `${chalk.green(
-        `Your API key is: ${chalk.bold(key)}`
-      )}`
+        `Your API key is: ${chalk.bold(key)}`,
+      )}`,
     );
   } catch (err) {
     spinner.stop();

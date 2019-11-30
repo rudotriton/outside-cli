@@ -1,6 +1,13 @@
 const minimist = require('minimist');
-const error = require('./utils/error');
 const chalk = require('chalk');
+const error = require('./utils/error');
+const today = require('./cmds/today');
+const forecast = require('./cmds/forecast');
+const set = require('./cmds/set');
+const unset = require('./cmds/unset');
+const get = require('./cmds/get');
+const version = require('./cmds/version');
+const help = require('./cmds/help');
 
 module.exports = () => {
   const args = minimist(process.argv.slice(2));
@@ -9,43 +16,43 @@ module.exports = () => {
 
   if (args.version || args.v) {
     cmd = 'version';
-  } 
+  }
 
-  if (args.help || args.h ) {
+  if (args.help || args.h) {
     cmd = 'help';
   }
 
   switch (cmd) {
     case 'today':
-      require('./cmds/today')(args)
-      break
+      today(args);
+      break;
 
     case 'forecast':
-      require('./cmds/forecast')(args)
-      break
+      forecast(args);
+      break;
 
-      case 'set':
-        require('./cmds/set')(args)
-        break
+    case 'set':
+      set(args);
+      break;
 
-      case 'get':
-        require('./cmds/get')()
-        break
+    case 'get':
+      get();
+      break;
 
-      case 'unset':
-        require('./cmds/unset')()
-        break
-      
+    case 'unset':
+      unset();
+      break;
+
     case 'version':
-      require('./cmds/version')()
-      break
+      version();
+      break;
 
     case 'help':
-      require('./cmds/help')(args)
-      break
+      help(args);
+      break;
 
     default:
-      error(chalk.red(`"${cmd}" is not a valid command!`), true)
-      break
+      error(chalk.red(`"${cmd}" is not a valid command!`));
+      break;
   }
-}
+};

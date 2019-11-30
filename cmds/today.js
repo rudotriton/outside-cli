@@ -1,6 +1,7 @@
+/* eslint-disable no-console */
 const ora = require('ora');
-const getWeather = require('../utils/weather');
 const chalk = require('chalk');
+const getWeather = require('../utils/weather');
 const getApiKey = require('../utils/getApiKey');
 
 module.exports = async (args) => {
@@ -15,12 +16,12 @@ module.exports = async (args) => {
 
     console.log(`
     Current conditions in ${chalk.yellow(location)}:
-    `)
+    `);
     console.log(`\t${(weather.main.temp - 273.15).toFixed(1)}°C and ${chalk.blue(weather.weather[0].description)}.
-    `)
+    `);
   } catch (err) {
-    spinner.stop()
+    spinner.stop();
 
-    console.error(err.message)
+    console.error(err.message);
   }
-}
+};
