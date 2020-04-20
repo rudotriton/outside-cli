@@ -10,14 +10,17 @@ jobs:
     name: Publish to NPM
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - uses: remorses/bump-version@js
+      - name: Bump version
+        uses: remorses/bump-version@js
         with:
           version_file: ./VERSION
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10
+      - run: npm install
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
