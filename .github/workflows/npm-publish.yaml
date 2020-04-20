@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: remorses/bump-version@js
         with:
-          version_file: package.json
+          version_file: ./package.json
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: master
       # - uses: actions/checkout@v1
