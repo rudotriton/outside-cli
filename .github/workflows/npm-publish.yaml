@@ -1,4 +1,4 @@
-name: Bump and Publish
+name: Publish
 
 on:
   push:
@@ -10,12 +10,6 @@ jobs:
     name: Publish to NPM
     runs-on: ubuntu-latest
     steps:
-      - name: Bump version
-        uses: remorses/bump-version@js
-        with:
-          version_file: ./VERSION
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: master
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
